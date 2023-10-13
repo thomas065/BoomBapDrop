@@ -1,14 +1,14 @@
 function displayMessage() {
     // get the text out of our <input> and assign it to a variable
-    let msg = document.getElementById('message').value;
+    let msg = document.getElementById('secondNote').value;
 
     // alert('Hello Guardian Cohort!')
     Swal.fire(
         {
             icon: 'success',
             backdrop: false,
-            title: '<strong>APP NAME</strong>',
-            text: msg, // <---- replace this text with that variable
+            title: `<strong>BoomBap!</strong>`,
+            text: `It's a SMASH hit!`, // <---- replace this text with that variable
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true,
@@ -17,13 +17,15 @@ function displayMessage() {
 }
 
 // get the start and end numbers from the page 
-function getPageNumbers() {
-    let 
+function getNotes() {
+    let firstNote = getElementById('firstNote').value;
+
+    let secondNote = getElementById('secondNote').value;
 
 }
 
-// generate a list of all numbers between the start and end
-function listNumbers() {
+// generate a list of all notes between the first and second
+function generateNotes(first, second) {
 
 }
 
