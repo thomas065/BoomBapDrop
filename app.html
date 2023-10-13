@@ -87,8 +87,8 @@
             <div class="col border-start border-end border-2">
                 <h2 class="border-bottom border-2">Drop the beat!</h2>
                 <!-- form -->
-                <form action="#" class="row g-3">
-                    <div class="col">
+                <form action="#" class="row g-3 d-flex justify-content-center">
+                    <div class="col-5">
                         <label class="form-label" for="firstNote">Starting Number</label>
                         <input class="form-control"
                         type="number"
@@ -96,15 +96,6 @@
                         name="firstNote"
                         placeholder="Start Number"
                         value="0" />
-                    </div>
-                    <div class="col">
-                        <label class="form-label" for="secondNote">Ending Number</label>
-                        <input class="form-control"
-                        type="number"
-                        id="secondNote"
-                        name="secondNote"
-                        placeholder="End Number"
-                        value="100" />
                     </div>
                     <div class="col-12 text-end">
                         <button id="btnSubmit" type="button" class="btn btn-dark">Mic drop!</button>
@@ -156,7 +147,7 @@
         let button = document.getElementById('btnSubmit')
 
         // tell the button to ru our displayMessage function when clicked
-        button.addEventListener('click', displayMessage);
+        button.addEventListener('click', getNotes);
     </script>
 
 </body>
