@@ -16,34 +16,42 @@ function getNotes() {
 
         displayNotes(generatedNotes);
 
-    //     Swal.fire({
-    //         backdrop: false,
-    //         title: `<strong>BoomBap!</strong>`,
-    //         text: `It's a SMASH hit!`, // <---- replace this text with that variable
-    //         imageUrl: 'https://unsplash.it/400/200',
-    //         imageWidth: 400,
-    //         imageHeight: 200,
-    //         imageAlt: 'Custom image',
-    //         timerProgressBar: true,
-    //     });
-    // } else {
-    //     Swal.fire({
-    //         icon: 'error',
-    //         title: 'Yikes, that hurt my ears',
-    //         backdrop: false,
-    //     });
+        Swal.fire({
+            backdrop: false,
+            title: `<strong>BoomBap!</strong>`,
+            text: `It's a SMASH hit!`, // <---- replace this text with that variable
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            timerProgressBar: true,
+        });
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Yikes, that hurt my ears',
+            backdrop: false,
+        });
     }
 }
 
 // generate a list of all notes
-function generateNotes(first) {
+function generateNotes(maximum) {
     let notes = [];
 
-    for (let n = first; n <= 100; n++) {
+    for (let n = 1; n <= maximum; n++) {
         if (n % 3 == 0) {
-            notes.push('Boom')
+            if (n % 5 == 0) {
+                notes.push('BoomBap');
+            } else {
+                notes.push('Boom');
+            }
         } else {
-            notes.push(n)
+            if (n % 5 == 0) {
+                notes.push('Bap');
+            } else {
+                notes.push(n);
+            }
         }
     }
     return notes;
@@ -51,27 +59,13 @@ function generateNotes(first) {
 
 // display the notes on the page
 function displayNotes(notes) {
-
-    let html = "";
+    let html = '';
 
     for (let i = 0; i < notes.length; i++) {
-    let currentNote = notes[i];
+        let currentNote = notes[i];
 
-    // if (currentNote % 3 == 0) {
-    //     if (currentNote % 5 == 0) {
-    //         'BoomBap'
-    //     } else {
-    //         'Bap'
-    //     }
-    // } else {
-    //     if (currentNote % 5 == 0) {
-    //         'Boom'
-    //     } else {
-    //         currentNote
-    //     }
-    // }
-    html += `<tr><td>${currentNote}</td></tr>`
-}
+        html += `<tr><tr><td>${currentNote}</td></tr>`;
+    }
 
     let tbody = document.getElementById('results');
     tbody.innerHTML = html;
