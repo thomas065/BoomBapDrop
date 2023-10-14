@@ -63,6 +63,10 @@ footer .bi:hover {
     height: 400px;
 }
 
+.code {
+    height: 650px;
+}
+
 .boom-bap {
     background-color: green;
     color: var(--tb-gray-100);
