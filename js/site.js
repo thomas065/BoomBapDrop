@@ -1,12 +1,16 @@
 
 // get users input
 function getNotes() {
-    let firstNote = document.getElementById('firstNote').value;
+    let bars = document.getElementById('bars').value;
+    let startNote = document.getElementById('startNote').value;
+    let stopNote = document.getElementById('stopNote').value;
 
-    firstNote = parseInt(firstNote);
+    bars = parseInt(bars);
+    startNote = parseInt(startNote);
+    stopNote = parseInt(stopNote);
 
-    if (Number.isInteger(firstNote)) {
-        let generatedNotes = generateNotes(firstNote);
+    if (Number.isInteger(startNote) && Number.isInteger(stopNote) && Number.isInteger(bars) && startNote < stopNote || (startNote == 0) || (stopNote == 0) || (bars == 0)) {
+        let generatedNotes = generateNotes(startNote, stopNote, bars);
 
         displayNotes(generatedNotes);
 
@@ -39,22 +43,18 @@ function getNotes() {
 }
 
 // generate a list of all notes
-function generateNotes(maximum) {
+function generateNotes(start, stop, maximum) {
     let notes = [];
 
-    for (let n = 1; n <= maximum; n++) {
-        if (n % 3 == 0) {
-            if (n % 5 == 0) {
-                notes.push('<div class="boom-bap">BoomBap</div>');
-            } else {
-                notes.push('<div class="boom">Boom</div>');
-            }
+    for (let i = 1; i <= maximum; i++) {
+        if (i % start == 0 && i % stop == 0) {
+            notes.push('<div class="boom-bap">BoomBap</div>');
+        } else if (i % start == 0) {
+            notes.push('<div class="boom">Boom</div>');
+        } else if (i % stop == 0) {
+            notes.push('<div class="bap">Bap</div>');
         } else {
-            if (n % 5 == 0) {
-                notes.push('<div class="bap">Bap</div>');
-            } else {
-                notes.push(n);
-            }
+            notes.push(i);
         }
     }
     return notes;
