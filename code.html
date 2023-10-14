@@ -75,7 +75,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- CHANGE ME TO THE REAL REPO LINK -->
-                            <a class="nav-link" href="#"> The Repo </a>
+                            <a class="nav-link" href="https://github.com/thomas065/BoomBapDrop" target="_blank" rel="noopener"> The Repo </a>
                         </li>
                         <li class="nav-item">
                             <a
@@ -185,8 +185,25 @@
                     <!-- Explain your code here -->
                     <p>The code is structured in 3 functions:</p>
                     <p>
-                        <code>displayMessage()</code> displays a SweetAlert when
-                        the button is pressed.
+                        The <code>getNotes()</code> function gets called when the user interacts with the web page. It retrieves the user's input
+                        from an HTML input element and then converts to an integer using <code>parseInt()</code>.
+                    </p>
+                    <p>
+                        The second function <code>generateNotes(maximum)</code> has a value passed in as an argument that initializes an array called <b>notes</b>,
+                        loops through to iterate 1 to a maximum number entered by the user input and follows a series of checks whether divisible by
+                        3 or 5 in which case adds <code>'Boom, Bap or BoomBap'</code>.
+                    </p>
+                    <p>
+                        Some whom may be reading this code may say this is a <code>FizzBuzz</code> coding challenge, and you would be correct. I have put
+                        a little spin on the game to change things up.
+                    </p>
+                    <p>
+                        The third function, <code>displayNotes(notes)</code> takes an array of notes as an argument and displays them on the web page by
+                        initializing an empty string called <code>html</code> and then loops through <code>notes</code> for each note and adds to the HTML
+                        table row.
+                    </p>
+                    <p>
+                        AND...finally, <code>Sweet Alerts</code> is a modal pop-up to give the user some context and to give the page a little flare on interaction.
                     </p>
                 </div>
             </div>
