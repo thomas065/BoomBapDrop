@@ -68,17 +68,17 @@ footer .bi:hover {
 }
 
 .boom-bap {
-    background-color: green;
+    background-color: var(--tb-purple-500);
     color: var(--tb-gray-100);
 }
 
 .boom {
-    background-color: red;
+    background-color: var(--tb-green-500);
     color: var(--tb-gray-100);
 }
 
 .bap {
-    background-color: blue;
+    background-color: var(--tb-red-300);
     color: var(--tb-gray-100);
 }
 
