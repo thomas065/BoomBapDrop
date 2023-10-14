@@ -9,7 +9,7 @@ function getNotes() {
     startNote = parseInt(startNote);
     stopNote = parseInt(stopNote);
 
-    if (Number.isInteger(startNote) && Number.isInteger(stopNote) && Number.isInteger(bars) && startNote < stopNote || (startNote == 0) || (stopNote == 0) || (bars == 0)) {
+    if (Number.isInteger(startNote) && Number.isInteger(stopNote) && Number.isInteger(bars) && startNote < stopNote && (startNote == 0) && (stopNote == 0) && (bars == 0)) {
         let generatedNotes = generateNotes(startNote, stopNote, bars);
 
         displayNotes(generatedNotes);
