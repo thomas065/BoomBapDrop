@@ -75,7 +75,14 @@
                         </li>
                         <li class="nav-item">
                             <!-- CHANGE ME TO THE REAL REPO LINK -->
-                            <a class="nav-link" href="https://github.com/thomas065/BoomBapDrop" target="_blank" rel="noopener"> The Repo </a>
+                            <a
+                                class="nav-link"
+                                href="https://github.com/thomas065/BoomBapDrop"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                The Repo
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a
@@ -105,79 +112,89 @@
                         <code class="language-js">
                             // get users input
                             function getNotes() {
-                                let firstNote = document.getElementById('firstNote').value;
-                            
-                                firstNote = parseInt(firstNote);
-                            
-                                if (Number.isInteger(firstNote)) {
-                                    let generatedNotes = generateNotes(firstNote);
-                            
+                                let bars = document.getElementById('bars').value;
+                                let startNote = document.getElementById('startNote').value;
+                                let stopNote = document.getElementById('stopNote').value;
+
+                                bars = parseInt(bars);
+                                startNote = parseInt(startNote);
+                                stopNote = parseInt(stopNote);
+
+                                if (Number.isInteger(startNote) && Number.isInteger(stopNote) && Number.isInteger(bars) && startNote < stopNote || (startNote == 0) && (stopNote == 0) && (bars == 0)) {
+                                    let generatedNotes = generateNotes(startNote, stopNote, bars);
+
                                     displayNotes(generatedNotes);
-                            
+
                                     Swal.fire({
+                                        showConfirmButton: false,
                                         backdrop: false,
                                         title: `<strong>BoomBap!</strong>`,
                                         text: `It's a SMASH hit!`, // <---- replace this text with that variable
-                                        imageUrl: 'https://unsplash.it/400/200',
+                                        imageUrl: '/img/bbSuccess.svg',
                                         imageWidth: 400,
                                         imageHeight: 200,
                                         imageAlt: 'Custom image',
                                         timerProgressBar: true,
+                                        timer: 1250,
                                     });
                                 } else {
                                     Swal.fire({
+                                        showConfirmButton: false,
                                         icon: 'error',
-                                        title: 'Yikes, that hurt my ears',
+                                        title: 'Yuck, that hurt my ears',
                                         backdrop: false,
+                                        imageUrl: '/img/bbReaction.svg',
+                                        imageWidth: 400,
+                                        imageHeight: 200,
+                                        imageAlt: 'Custom image',
+                                        timerProgressBar: true,
+                                        timer: 1250,
                                     });
                                 }
                             }
-                            
+
                             // generate a list of all notes
-                            function generateNotes(maximum) {
+                            function generateNotes(start, stop, maximum) {
                                 let notes = [];
-                            
-                                for (let n = 1; n <= maximum; n++) {
-                                    if (n % 3 == 0) {
-                                        if (n % 5 == 0) {
-                                            notes.push('BoomBap');
-                                        } else {
-                                            notes.push('Boom');
-                                        }
+
+                                for (let i = 1; i <= maximum; i++) {
+                                    if (i % start == 0 && i % stop == 0) {
+                                        notes.push('<div class="boom-bap">BoomBap</div>');
+                                    } else if (i % start == 0) {
+                                        notes.push('<div class="boom">Boom</div>');
+                                    } else if (i % stop == 0) {
+                                        notes.push('<div class="bap">Bap</div>');
                                     } else {
-                                        if (n % 5 == 0) {
-                                            notes.push('Bap');
-                                        } else {
-                                            notes.push(n);
-                                        }
+                                        notes.push(i);
                                     }
                                 }
                                 return notes;
                             }
-                            
+
                             // display the notes on the page
                             function displayNotes(notes) {
                                 let html = '';
-                            
+
                                 for (let i = 0; i < notes.length; i++) {
                                     let currentNote = notes[i];
-                            
+
                                     html += `<tr><tr><td>${currentNote}</td></tr>`;
                                 }
-                            
+
                                 let tbody = document.getElementById('results');
                                 tbody.innerHTML = html;
                             }
-                            
+
                             // with each number, put it on the page
-                            
+
                             // given 2 values display the numbers 1-100
-                            
+
                             // when a number is divisible by the first value, display "Boom"
-                            
+
                             // When a number is divisible by the second value, display "Bap"
-                            
+
                             // when a number is divisible by both values, display "BoomBap...Drop!"
+
                         </code>
                 </pre>
                 </div>
@@ -185,25 +202,39 @@
                     <!-- Explain your code here -->
                     <p>The code is structured in 3 functions:</p>
                     <p>
-                        The <code>getNotes()</code> function gets called when the user interacts with the web page. It retrieves the user's input
-                        from an HTML input element and then converts to an integer using <code>parseInt()</code>.
+                        The <code>getNotes()</code> function gets called when
+                        the user interacts with the web page. It retrieves the
+                        user's input from an HTML input element and then
+                        converts to an integer using <code>parseInt()</code>.
                     </p>
                     <p>
-                        The second function <code>generateNotes(maximum)</code> has a value passed in as an argument that initializes an array called <b>notes</b>,
-                        loops through to iterate 1 to a maximum number entered by the user input and follows a series of checks whether divisible by
-                        3 or 5 in which case adds <code>'Boom, Bap or BoomBap'</code>.
+                        The second function
+                        <code>generateNotes(maximum)</code> has a value passed
+                        in as an argument that initializes an array called
+                        <b>notes</b>, loops through to iterate 1 to a maximum
+                        number entered by the user input and follows a series of
+                        checks whether divisible by 3 or 5 in which case adds
+                        <code>'Boom, Bap or BoomBap'</code>.
                     </p>
                     <p>
-                        Some whom may be reading this code may say this is a <code>FizzBuzz</code> coding challenge, and you would be correct. I have put
-                        a little spin on the game to change things up.
+                        Some whom may be reading this code may say this is a
+                        <code>FizzBuzz</code> coding challenge, and you would be
+                        correct. I have put a little spin on the game to change
+                        things up.
                     </p>
                     <p>
-                        The third function, <code>displayNotes(notes)</code> takes an array of notes as an argument and displays them on the web page by
-                        initializing an empty string called <code>html</code> and then loops through <code>notes</code> for each note and adds to the HTML
+                        The third function,
+                        <code>displayNotes(notes)</code> takes an array of notes
+                        as an argument and displays them on the web page by
+                        initializing an empty string called
+                        <code>html</code> and then loops through
+                        <code>notes</code> for each note and adds to the HTML
                         table row.
                     </p>
                     <p>
-                        AND...finally, <code>Sweet Alerts</code> is a modal pop-up to give the user some context and to give the page a little flare on interaction.
+                        AND...finally, <code>Sweet Alerts</code> is a modal
+                        pop-up to give the user some context and to give the
+                        page a little flare on interaction.
                     </p>
                 </div>
             </div>
