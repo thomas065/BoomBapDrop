@@ -1,9 +1,3 @@
-// function displayMessage() {
-//     // get the text out of our <input> and assign it to a variable
-//     let msg = document.getElementById('secondNote').value;
-
-//     // alert('Hello Guardian Cohort!')
-// }
 
 // get users input
 function getNotes() {
@@ -17,20 +11,29 @@ function getNotes() {
         displayNotes(generatedNotes);
 
         Swal.fire({
+            showConfirmButton: false,
             backdrop: false,
             title: `<strong>BoomBap!</strong>`,
             text: `It's a SMASH hit!`, // <---- replace this text with that variable
-            imageUrl: 'https://unsplash.it/400/200',
+            imageUrl: '/img/bbSuccess.svg',
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
             timerProgressBar: true,
+            timer: 1250,
         });
     } else {
         Swal.fire({
+            showConfirmButton: false,
             icon: 'error',
-            title: 'Yikes, that hurt my ears',
+            title: 'Yuck, that hurt my ears',
             backdrop: false,
+            imageUrl: '/img/bbReaction.svg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            timerProgressBar: true,
+            timer: 1250,
         });
     }
 }
@@ -42,13 +45,13 @@ function generateNotes(maximum) {
     for (let n = 1; n <= maximum; n++) {
         if (n % 3 == 0) {
             if (n % 5 == 0) {
-                notes.push('BoomBap');
+                notes.push('<div class="boom-bap">BoomBap</div>');
             } else {
-                notes.push('Boom');
+                notes.push('<div class="boom">Boom</div>');
             }
         } else {
             if (n % 5 == 0) {
-                notes.push('Bap');
+                notes.push('<div class="bap">Bap</div>');
             } else {
                 notes.push(n);
             }

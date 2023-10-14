@@ -46,5 +46,43 @@ footer .bi:hover {
 }
 
 .app-logo {
-    max-width: 400px;
+    min-width: 350px;
+}
+
+.section1 {
+    background-color: var(--tb-indigo-100);
+}
+
+.section2 {
+        transform: skewY(10deg);
+        box-shadow:  20px 20px 60px #050505,
+        20px 20px 60px #020202;
+    }
+
+.panel-body {
+    height: 400px;
+}
+
+.boom-bap {
+    background-color: green;
+    color: var(--tb-gray-100);
+}
+
+.boom {
+    background-color: red;
+    color: var(--tb-gray-100);
+}
+
+.bap {
+    background-color: blue;
+    color: var(--tb-gray-100);
+}
+
+
+@media only screen and (max-width: 576px) {
+    .section2 {
+        min-width: 350px;
+        transform: none;
+        box-shadow:  none
+    }
 }

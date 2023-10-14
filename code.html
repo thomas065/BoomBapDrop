@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>APP NAME: By Thomas Bell</title>
+        <title>BoomBap Drop: By Thomas Bell</title>
 
         <!-- Bootstrap CSS -->
         <link
@@ -26,19 +26,14 @@
         />
 
         <!-- Prism CSS -->
-        <link rel="stylesheet" href="/css/prism.css">
+        <link rel="stylesheet" href="/css/prism.css" />
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/site.css" />
         <link rel="stylesheet" href="/css/theme.css" />
 
         <!-- Favicon -->
-        <link
-            rel="stylesheet"
-            rel="shortcut icon"
-            href=""
-            type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
     </head>
 
     <body>
@@ -46,7 +41,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html">
                     <img src="/img/neonLion.svg" height="45" alt="myLogo" />
-                    APP NAME
+                    BoomBap Drop
                 </a>
                 <button
                     class="navbar-toggler"
@@ -108,32 +103,90 @@
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-js">
-    function displayMessage() {
-        // get the text out of our input and assign it to a variable
-        let msg = document.getElementById('message').value;
-
-        // alert('Hello Guardian Cohort!')
-        Swal.fire(
-            {
-                icon: 'success',
-                backdrop: false,
-                title: '<strong>APP NAME</strong>',
-                text: msg, // <---- replace this text with that variable
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-            }
-        );
-    }
+                            // get users input
+                            function getNotes() {
+                                let firstNote = document.getElementById('firstNote').value;
+                            
+                                firstNote = parseInt(firstNote);
+                            
+                                if (Number.isInteger(firstNote)) {
+                                    let generatedNotes = generateNotes(firstNote);
+                            
+                                    displayNotes(generatedNotes);
+                            
+                                    Swal.fire({
+                                        backdrop: false,
+                                        title: `<strong>BoomBap!</strong>`,
+                                        text: `It's a SMASH hit!`, // <---- replace this text with that variable
+                                        imageUrl: 'https://unsplash.it/400/200',
+                                        imageWidth: 400,
+                                        imageHeight: 200,
+                                        imageAlt: 'Custom image',
+                                        timerProgressBar: true,
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Yikes, that hurt my ears',
+                                        backdrop: false,
+                                    });
+                                }
+                            }
+                            
+                            // generate a list of all notes
+                            function generateNotes(maximum) {
+                                let notes = [];
+                            
+                                for (let n = 1; n <= maximum; n++) {
+                                    if (n % 3 == 0) {
+                                        if (n % 5 == 0) {
+                                            notes.push('BoomBap');
+                                        } else {
+                                            notes.push('Boom');
+                                        }
+                                    } else {
+                                        if (n % 5 == 0) {
+                                            notes.push('Bap');
+                                        } else {
+                                            notes.push(n);
+                                        }
+                                    }
+                                }
+                                return notes;
+                            }
+                            
+                            // display the notes on the page
+                            function displayNotes(notes) {
+                                let html = '';
+                            
+                                for (let i = 0; i < notes.length; i++) {
+                                    let currentNote = notes[i];
+                            
+                                    html += `<tr><tr><td>${currentNote}</td></tr>`;
+                                }
+                            
+                                let tbody = document.getElementById('results');
+                                tbody.innerHTML = html;
+                            }
+                            
+                            // with each number, put it on the page
+                            
+                            // given 2 values display the numbers 1-100
+                            
+                            // when a number is divisible by the first value, display "Boom"
+                            
+                            // When a number is divisible by the second value, display "Bap"
+                            
+                            // when a number is divisible by both values, display "BoomBap...Drop!"
                         </code>
                 </pre>
                 </div>
                 <div class="col-12 col-lg-4">
                     <!-- Explain your code here -->
-                    <p>The code is structured in one function:</p>
+                    <p>The code is structured in 3 functions:</p>
                     <p>
-                        <code>displayMessage()</code> displays a SweetAlert
-                        when the button is presse.
+                        <code>displayMessage()</code> displays a SweetAlert when
+                        the button is pressed.
                     </p>
                 </div>
             </div>
@@ -180,8 +233,8 @@
                 'remove-trailing': true,
                 'remove-indent': true,
                 'left-trim': true,
-                'right-trim': true
-            })
+                'right-trim': true,
+            });
         </script>
     </body>
 </html>
