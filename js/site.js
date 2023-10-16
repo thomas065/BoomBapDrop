@@ -10,7 +10,6 @@ function getNotes() {
     stopNote = parseInt(stopNote);
 
     if (Number.isInteger(startNote) && Number.isInteger(stopNote) && Number.isInteger(bars)
-        && startNote < stopNote
         && (startNote != 0)
         && (stopNote != 0)) {
         let generatedNotes = generateNotes(startNote, stopNote, bars);
