@@ -69,7 +69,7 @@ function displayNotes(notes) {
     for (let i = 0; i < notes.length; i++) {
         let currentNote = notes[i];
 
-        html += `<tr><tr><td>${currentNote}</td></tr>`;
+        html += `<div>${currentNote}</div>`;
     }
 
     let tbody = document.getElementById('results');
